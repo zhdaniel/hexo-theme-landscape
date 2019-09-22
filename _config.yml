@@ -2,7 +2,7 @@
 menu:
   Home: /
   Archives: /archives
-rss: /atom.xml
+#rss: /atom.xml
 banner: "images/banner.jpg"
 
 # Content
@@ -11,7 +11,7 @@ fancybox: true
 recent_posts_limits: 5
 
 # Sidebar
-sidebar: right
+sidebar: false
 widgets:
 - category
 - tag
