@@ -43,9 +43,17 @@
 
 <% if (!index && post.comments && config.disqus_shortname){ %>
 <section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () { this.page.url = '<%= config.url + '/' + post.canonical_path %>'; this.page.identifier = '<%= post.id || post.canonical_path %>'; };
+  (function() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://xztech.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 <% } %>
 <% if (!index && post.comments && theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>
